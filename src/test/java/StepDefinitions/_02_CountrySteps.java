@@ -36,4 +36,13 @@ public class _02_CountrySteps {
         ln.verifyContainsText(ln.countryList,"Çorum");
 
     }
+
+    @When("Create a country name as {string} code as {string}")
+    public void createACountryNameAsCodeAs(String name, String code) {
+        ln.findAndClick("cookies");
+        ln.findAndClick("addButton");
+        ln.findAndSend("nameInput",name);
+        ln.findAndSend("code",code);
+        ln.findAndClick("saveButton");
+    }
 }

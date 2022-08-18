@@ -16,31 +16,47 @@ public class LeftNav extends Parent{
     private WebElement setupOne;
 
     @FindBy(xpath = "//a/span[text()='Setup']")
-    public WebElement setup;
+    private WebElement setup;
 
     @FindBy(xpath = "//a/span[text()='Parameters']")
-    public WebElement Parameters;
+    private WebElement Parameters;
 
     @FindBy(xpath = "//a/span[text()='Countries']")
-    public WebElement Countries;
+    private WebElement Countries;
+
+    @FindBy(xpath = "//a/span[text()='Citizenships']")
+    private WebElement citizenship;
 
     @FindBy(xpath = "//*[@id='ms-table-1_buttons']/ms-table-toolbar/div/ms-add-button/div/button")
-    public WebElement addButton;
+    private WebElement addButton;
 
     @FindBy(xpath = "//ms-text-field[@id='ms-text-field-2']/input")
-    public WebElement nameInput;
+    private WebElement nameInput;
 
     @FindBy(xpath = "//ms-text-field[@id='ms-text-field-3']/input")
-    public WebElement code;
+    private WebElement code;
 
     @FindBy(xpath = "//span[contains (text(), 'Save')]")
-    public WebElement saveButton;
+    private WebElement saveButton;
 
     @FindBy(xpath = "//div[@class='ccb__button']/button")
-    public WebElement cookies;
+    private WebElement cookies;
 
     @FindBy(xpath = "//tbody")
     public List<WebElement> countryList;
+
+    @FindBy(xpath = "//div[contains(text(),'successfully')]")
+    private WebElement successMessage;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
+    private WebElement shortName;
+
+    @FindBy(xpath = "//div[contains(text(),'already exists')]")
+    private WebElement alreadyExist;
+
+    @FindBy(xpath = "//button[@aria-label='Close dialog']")
+    private WebElement closeDialog;
+
 
 
 
@@ -60,6 +76,7 @@ public class LeftNav extends Parent{
             case "addButton" : myElement = addButton; break;
             case "saveButton" : myElement = saveButton;break;
             case "countryList" : myElements = countryList;break;
+            case "citizenship" : myElement = citizenship; break;
 
         }
 
@@ -73,6 +90,7 @@ public class LeftNav extends Parent{
 
             case "nameInput" : myElement = nameInput; break;
             case "code" : myElement = code;break;
+
         }
 
         sendKeysFunction(myElement,value);
