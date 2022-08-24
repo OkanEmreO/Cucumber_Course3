@@ -4,12 +4,18 @@ import Utilities.GWD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DialogContent extends Parent {
 
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
+
+
 
     @FindBy(id = "mat-input-0")
     private WebElement username;
@@ -32,6 +38,12 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "//ms-text-field[@formcontrolname='code']//input")
     private WebElement codeInput;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='budgetAccountIntegrationCode']//input")
+    private WebElement IntegrationCode;
+
+    @FindBy(xpath = "//ms-integer-field[@formcontrolname='priority']//input")
+    private WebElement priority;
+
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement saveButton;
 
@@ -46,6 +58,21 @@ public class DialogContent extends Parent {
 
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     private WebElement closeDialog;
+
+    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "//ms-search-button//button")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//ms-delete-button//button")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Delete')]")
+    private WebElement deleteDialogButton;
+
+
+
 
 
     WebElement myElement;
@@ -62,6 +89,12 @@ public class DialogContent extends Parent {
             case "codeInput": myElement = codeInput;break;
 
             case "shortName": myElement = shortName;break;
+
+            case "searchInput" : myElement=searchInput;break;
+
+            case "IntegrationCode": myElement = IntegrationCode;break;
+
+            case "priority" : myElement = priority;break;
         }
 
         sendKeysFunction(myElement, value);
@@ -77,6 +110,13 @@ public class DialogContent extends Parent {
             case "saveButton": myElement = saveButton;break;
 
             case "closeDialog": myElement = closeDialog;break;
+
+            case "searchButton" : myElement=searchButton;break;
+
+            case "deleteButton" : myElement=deleteButton;break;
+
+            case "deleteDialogButton" : myElement=deleteDialogButton;break;
+
         }
 
         clickFunction(myElement);
@@ -93,5 +133,18 @@ public class DialogContent extends Parent {
         }
 
         verifyContainsText(myElement, text);
+    }
+
+    public void searchAndDelete(String searchText){
+        findAndSend("searchInput",searchText);
+        findAndClick("searchButton");
+
+      //  WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
+      //  wait.until(ExpectedConditions.stalenessOf(deleteButton));
+
+        GWD.Bekle(2);
+
+        findAndClick("deleteButton");
+        findAndClick("deleteDialogButton");
     }
 }

@@ -7,12 +7,15 @@ Feature:  Citizenship with scenario Outline
     And Navigate to Citizenship page
 
   Scenario Outline: Citizenship create
-    When User a Citizenship name as "<CitizenshipName>" short name as "<ShortName>"
+  //  When User a Citizenship name as "<CitizenshipName>" short name as "<ShortName>"
+  //  Then Success message should be displayed
+//
+  //  When User a Citizenship name as "<CitizenshipName>" short name as "<ShortName>"
+  //  Then Already exist message should be displayed
+  //  And Click on close button
+//
+    When User delete the "<CitizenshipName>"
     Then Success message should be displayed
-
-    When User a Citizenship name as "<CitizenshipName>" short name as "<ShortName>"
-    Then Already exist message should be displayed
-    And Click on close button
 
     Examples:
       | CitizenshipName | ShortName |

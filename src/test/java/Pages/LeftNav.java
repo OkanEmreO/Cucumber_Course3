@@ -57,6 +57,21 @@ public class LeftNav extends Parent{
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     private WebElement closeDialog;
 
+    @FindBy(xpath = "//span[text()='Nationalities']")
+    private WebElement nationalities;
+
+    @FindBy(xpath = "//span[text()='Fees']")
+    private WebElement Fees;
+
+    @FindBy(xpath = "(//span[text()='Entrance Exams'])[1]")
+    private WebElement entranceExamOne;
+
+    @FindBy(xpath="(//span[text()='Setup'])[2]")
+    private WebElement setupTwo;
+
+    @FindBy(xpath = "(//span[text()='Entrance Exams'])[2]")
+    private WebElement entranceExamTwo;
+
 
 
 
@@ -77,6 +92,12 @@ public class LeftNav extends Parent{
             case "saveButton" : myElement = saveButton;break;
             case "countryList" : myElements = countryList;break;
             case "citizenship" : myElement = citizenship; break;
+            case "nationalities" : myElement=nationalities;break;
+            case "Fees" : myElement = Fees; break;
+            case "entranceExamOne" : myElement=entranceExamOne;break;
+            case "setupTwo":myElement=setupTwo;break;
+            case "entranceExamTwo" : myElement=entranceExamTwo;break;
+
 
         }
 
@@ -90,6 +111,7 @@ public class LeftNav extends Parent{
 
             case "nameInput" : myElement = nameInput; break;
             case "code" : myElement = code;break;
+
 
         }
 
