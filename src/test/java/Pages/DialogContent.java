@@ -72,6 +72,10 @@ public class DialogContent extends Parent {
     private WebElement deleteDialogButton;
 
 
+    @FindBy(xpath = "//button[@matbadgeposition='below']")
+    private WebElement addButton2;
+
+
 
 
 
@@ -116,6 +120,8 @@ public class DialogContent extends Parent {
             case "deleteButton" : myElement=deleteButton;break;
 
             case "deleteDialogButton" : myElement=deleteDialogButton;break;
+
+            case "addButton2" : myElement=addButton2;break;
 
         }
 

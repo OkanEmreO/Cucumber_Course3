@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import Pages.DialogContent;
+import Pages.EmployeContent;
 import Pages.FormContent;
 import Pages.LeftNav;
 import io.cucumber.datatable.DataTable;
@@ -16,6 +17,8 @@ public class _05_DatatableSteps {
     DialogContent dc = new DialogContent();
 
     FormContent fc = new FormContent();
+
+    EmployeContent ec = new EmployeContent();
 
     @And("Click on the element in the left Nav")
     public void clickOnTheElementInTheLeftNav(DataTable elements) {
@@ -71,4 +74,13 @@ public class _05_DatatableSteps {
         }
     }
 
+    @And("User sending the keys in Employe Content")
+    public void userSendingTheKeysInEmployeContent(DataTable elements) {
+        List<List<String>> listElement = elements.asLists(String.class);
+
+        for (int i = 0; i < listElement.size(); i++) {
+
+            ec.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
+        }
+    }
 }
